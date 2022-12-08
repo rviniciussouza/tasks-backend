@@ -20,9 +20,12 @@ import br.ce.wcaquino.taskbackend.utils.ValidationException;
 @RequestMapping(value ="/todo")
 public class TaskController {
 
-	@Autowired
-	private TaskRepo todoRepo;
-	
+	private final TaskRepo todoRepo;
+
+	public TaskController(TaskRepo todoRepo) {
+		this.todoRepo = todoRepo;
+	}
+
 	@GetMapping
 	public List<Task> findAll() {
 		return todoRepo.findAll();
