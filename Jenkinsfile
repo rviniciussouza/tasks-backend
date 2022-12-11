@@ -35,8 +35,8 @@ pipeline {
             }
         }
         stage ('Api test') {
-            dir('api-test') {
-                steps {
+            steps {
+                dir('api-test') {
                     git 'https://github.com/rviniciussouza/tasks-api-test.git'
                     bat 'mvn test'
                 }
